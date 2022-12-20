@@ -1,0 +1,67 @@
+
+html{
+    background-color: rgb(9, 6, 23);
+    font-family: Inder;
+}
+
+.nav{
+
+text-decoration: none;
+margin: 0 10px;
+color: bisque;
+}
+
+
+.nav:hover{
+    color: aqua;
+}
+
+.container{
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30;
+
+
+}
+.home{
+   position: absolute;
+   top: 480;
+  
+   bottom: 0;
+
+color: rgb(42, 134, 165);
+
+
+
+}
+.home h1{
+    font-size: xx-large;
+}
+.home h4{
+    margin-left: 20px;
+}
+img{
+    height: 500px ;
+    width:400px;
+   
+}
+
+@media(max-width:700px){
+
+    
+    .home{
+        color: red;       
+    margin-top: 30px;
+    margin-left: 250px;
+    
+    
+    }
+    .home h4{
+        margin-left: 20px;
+    }
+
+
+} 
