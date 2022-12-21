@@ -31,3 +31,4 @@ Route::middleware([
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+Route::get('list', [CourseController::class,'show']);
