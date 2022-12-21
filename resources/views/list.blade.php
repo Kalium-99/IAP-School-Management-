@@ -10,7 +10,7 @@
     <tr>
  <td> Course ID </td>
  <td>  Course name </td>
- <td> Unit no. </td>
+ <td> Unit . </td>
  <td> Description </td>
  </tr>
  @foreach ($courses as $course)
