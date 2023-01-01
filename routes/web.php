@@ -17,6 +17,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/studentattendance', [App\Http\Controllers\AttendanceController::class,'show']);
+Route::get('/results', [App\Http\Controllers\ResultController::class,'show']);
+Route::get('/units', [App\Http\Controllers\UnitController::class,'select']);
+Route::get('/selfregistration', [App\Http\Controllers\UnitController::class,'show']);
+Route::post('/addunit', [App\Http\Controllers\UnitController::class,'addunit']);
+Route::get('/studentcoursework', [App\Http\Controllers\CourseController::class,'showCoursework']);
+Route::get('/studentfees', function () {
+    return view('studfees');
+});
+Route::get('/student', function () {
+    return view('studashboard');
+});
+
+Route::get('/logout', function () {
+    Session::forget('student');
+    return redirect('/');
+});
+
+Route::get('/removeunit/{id}', [App\Http\Controllers\UnitController::class,'removeunit']);
+Route::get('/worksubmission/{id}', [App\Http\Controllers\CourseController::class,'viewwork']);
+Route::post('upload', [App\Http\Controllers\CourseController::class,'submitCoursework']);
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -31,4 +54,4 @@ Route::middleware([
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-Route::get('list', [CourseController::class,'show']);
+Route::get('list', [App\Http\Controllers\CourseController::class,'show']);

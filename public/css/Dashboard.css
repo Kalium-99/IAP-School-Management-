@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inder;
+    color: rgb(42, 134, 165);
+}
+html{
+
+    background-image: url("Ebony.jpg");
+
+}
+
+
+body{
+    min-height: 100vh;
+    width: 100%;
+    
+}
+
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 240px;
+    background: black;
+}
+.sidebar .logo-details{
+    height: 80px;
+    width: 100%;
+    color: aliceblue;
+    font: Kalam;
+
+}
+
+.sidebar .logo-details .logo_name{
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    margin-left:8px;
+
+}
+
+.sidebar .nav-links{
+    margin-top:16px;
+}
+
+.sidebar .nav-links li{
+    height:50px;
+    width: 100%;
+    list-style: none;
+
+}
+
+.sidebar .nav-links li a{
+    background-color: black;
+    color: black;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+
+.sidebar .nav-links li a i{
+    color: aqua;
+    min-width:60px;
+    text-align: center;
+    font-size: 18px;
+    background-color: black ;
+
+}
+.sidebar .nav-links li a i:hover{
+    color:white;
+}
+.sidebar .nav-links li a .link-name{
+    font-size: 15px;
+    font-weight: 400;
+    color: aqua;
+}
+
+.sidebar .nav-links li a .link-name:hover{
+    color:white;
+}
+

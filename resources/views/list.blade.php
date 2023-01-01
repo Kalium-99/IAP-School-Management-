@@ -1,7 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet" href="{{asset('stylecss/liststyle.css')}}">
-
+        <link rel="stylesheet" href="{{asset('css/liststyle.css')}}">
+    </head>
 <div class ="listbox">
 <h1> Course list </h1>
 <table border="1">

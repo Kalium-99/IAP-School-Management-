@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
-            
-            $table->id('unit_no')->unique();
-            $table->string('unitname');
-            $table->string('description');
-            $table->id('course_no');
+        Schema::create('carts', function (Blueprint $table) {
+            $table->id('cart_no')->unique();
+            $table->string('student_no');
+            $table->string('course_no');
+            $table->string('unit_no');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('carts');
     }
 };
