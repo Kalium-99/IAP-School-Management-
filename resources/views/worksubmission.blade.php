@@ -33,6 +33,7 @@
 
 
 @section('content')
+@endsection
 
 
 
