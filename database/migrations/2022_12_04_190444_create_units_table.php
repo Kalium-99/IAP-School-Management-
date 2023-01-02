@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id('unit_no')->unique();
             $table->string('unitname');
             $table->string('description');
-            $table->id('course_no');
+            $table->integer('course_no');
             $table->timestamps();
         });
     }
