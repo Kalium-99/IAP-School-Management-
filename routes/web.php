@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +14,48 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('welcome');
 });
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified',
+    'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+Route::get('list', [CourseController::class,'show']);
+
+//creating staff
+Route::get('/staffapplication' , [App\Http\Controllers\StaffController::class, 'index']);
+Route::post('/staffreg', [App\Http\Controllers\StaffController::class, 'store']);
+Route::post('/staffapplication',  [App\Http\Controllers\StaffController::class, 'index'])->name('index');
+
+
+Route::get('/admin', function() {
+    return view('admin.admindashboard');
+});
+Route::get('/staff', function() {
+    return view('staffdashboard');
+});
+
+//displaying all staff applicants
+Route::get('/applicants', [App\Http\Controllers\StaffController::class, 'staffapplicants']);
+Route::get('/staffaccepted', [App\Http\Controllers\StaffController::class, 'staffaccepted']);
+
+//decline applicant application
+Route::delete('/applicants/{applicant}',[App\Http\Controllers\StaffController::class, 'decline']);
+//accept applicant application
+Route::put('/applicants/{applicant}',[App\Http\Controllers\StaffController::class, 'accept']);
+
+Route::get('/lecturers', [App\Http\Controllers\LecturerController::class, 'lecturers']);
+Route::post('/lecturers/{lecturer}', [App\Http\Controllers\LecturerController::class, 'unitassignment']);
+
+Route::get('/lecsOOP', [App\Http\Controllers\LecturerController::class, 'ooplecturers']);
